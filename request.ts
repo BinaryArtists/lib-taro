@@ -1,6 +1,5 @@
 import Taro from "@tarojs/taro";
-import { ISMOCK, MAINHOST } from "../config";
-import { commonParams, requestConfig } from "../config/request";
+import { netlayer } from './layers/net.layer';
 import { toast, user } from './sdk';
 
 // 封装请求
@@ -48,9 +47,9 @@ export class Request {
         if (user.getUserIdSync()) header['userId'] = user.getUserIdSync();
 
         let combinedOptions = {
-            data: { ...commonParams, ...opts.data, ...data },
+            data: { ...netlayer.api.commonParams, ...opts.data, ...data },
             method: opts.method || data.method || method || 'GET',
-            url: `${opts.host || MAINHOST}${opts.url}`,
+            url: `${opts.host || netlayer.api.mainHost}${opts.url}`,
             header
         }
 
@@ -72,7 +71,7 @@ export class Request {
             const { code } = await Taro.login();
 
             const { data } = await Taro.request({
-                url: `${MAINHOST}${requestConfig.wxLogin}`,
+                url: `${netlayer.api.mainHost}${netlayer.api.list.wxLogin}`,
                 data: {code: code}
             })
 
@@ -89,14 +88,10 @@ export class Request {
      * 
      * */ 
     static async request(opts: Options) {
-        
         // Taro.request 请求
         const res: Response = <Response> await Taro.request(opts);
 
         console.log(`[OUT][${new Date().toLocaleString()}] ==> `, res);
-
-        // 是否mock
-        if (ISMOCK) return res.data;
 
         // 请求失败
         if (res.statusCode === 403) {
@@ -166,7 +161,7 @@ export class Request {
    }
 }
 
-const Api = Request.getApiList(requestConfig)
+const Api = Request.getApiList(netlayer.api.list)
 
 export default Api as any;
 

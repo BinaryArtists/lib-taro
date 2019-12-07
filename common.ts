@@ -1,15 +1,7 @@
-/** 
- * 共用函数
-*/
-
 export const repeat = (str = '0', times) => (new Array(times + 1)).join(str);
+
 // 时间前面 +0 
 export const pad = (num, maxLength = 2) => repeat('0', maxLength - num.toString().length) + num;
-
-// 全局的公共变量
-export let globalData: any = {
-
-}
 
 // 时间格式装换函数
 
@@ -22,8 +14,8 @@ export const noop = () => {
 }
 
 export const anonymousify = (str) => {
-    if(null != str && str != undefined){
-        if(str.length <= 3){
+    if(null != str && str != undefined) {
+        if (str.length <= 3){
             return "*" + str.substring(1,str.length);
         } else if(str.length > 3 && str.length <= 6){
             return "**" + str.substring(2,str.length);
