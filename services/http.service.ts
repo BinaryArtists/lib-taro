@@ -162,8 +162,5 @@ export class Request {
    }
 }
 
-const Api = Request.getApiList(netlayer.api.list)
-
-export default Api as any;
-
-export const Restful = Request.creatRestfulRequests();
+export const Api = Request.getApiList(netlayer.api.list) as any;
+export const Restful = Request.creatRestfulRequests() as any;
