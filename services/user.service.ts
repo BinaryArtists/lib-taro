@@ -1,5 +1,5 @@
 import Taro from "@tarojs/taro";
-import {cache} from './cache';
+import {cache} from '../sdk/cache';
 
 class User {
   constructor () {
@@ -32,6 +32,8 @@ class User {
 
     return res.data;
   }
+
+  
 
   async getToken () {
     const res = await cache.get('token');

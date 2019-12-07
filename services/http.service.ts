@@ -1,6 +1,7 @@
 import Taro from "@tarojs/taro";
-import { netlayer } from './layers/net.layer';
-import { toast, user } from './sdk';
+import { netlayer } from '../layers/net.layer';
+import { toast } from '../sdk';
+import { user } from '../services';
 
 // 封装请求
 declare type Methods = "GET" | "OPTIONS" | "HEAD" | "PUT" | "DELETE" | "TRACE" | "CONNECT";

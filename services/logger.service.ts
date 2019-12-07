@@ -2,7 +2,7 @@
  * 封装logo函数
 */
 
-import { formatTime } from './common';
+import { formatTime } from '../common';
 
 const defaults = {
     level: 'log',
