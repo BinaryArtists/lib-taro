@@ -1,7 +1,6 @@
 import { View, Image, Text, Input, ScrollView, Swiper, SwiperItem } from '@tarojs/components'
 import './index.scss';
-import { string } from 'prop-types';
-import { getImage } from '@config/request';
+import { netlayer } from '@lib-taro/layers';
 
 
 function Banner(props) {
@@ -24,7 +23,7 @@ function Banner(props) {
           props.ad && props.ad.map((item, key) => (
             <SwiperItem key={item.id}>
               <View className="banner">
-                  <Image className="banner_img" src={getImage(item.pic)} />
+                  <Image className="banner_img" src={netlayer.pipe.image(item.pic)} />
               </View>
             </SwiperItem>
           ))
