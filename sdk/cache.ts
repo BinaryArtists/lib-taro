@@ -3,16 +3,16 @@ import Taro from "@tarojs/taro";
 
 class Cache {
 
-  set (k, v) {
+  set (key, data) {
     return Taro.setStorage({
-      key: k,
-      data: v
+      key,
+      data
     });
   }
 
-  get (k) {
+  get (key) {
     return Taro.getStorage({
-      key: k
+      key
     });
   }
 
@@ -24,12 +24,20 @@ class Cache {
     Taro.setStorageSync(k, v);
   }
 
-  rm () {
+  rm (key) {
+    return Taro.removeStorage({ key });
+  }
 
+  rmSync (key) {
+    Taro.removeStorageSync(key);
   }
 
   cls () {
+    return Taro.clearStorage();
+  }
 
+  clsSync () {
+    Taro.clearStorageSync();
   }
 }
 

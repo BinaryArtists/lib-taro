@@ -32,7 +32,7 @@ function printBuffer(logEntry, options){
 
 }
 
-interface LogEntry{
+interface LogEntry {
     started ? : object  // 触发时间
 }
 

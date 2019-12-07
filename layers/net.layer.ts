@@ -16,6 +16,7 @@ export interface ReloginHandler {
 }
 export interface UserSessionControl {
   relogin?: ReloginHandler; 
+  login?: ReloginHandler; 
 }
 
 export interface GetImagePiping {

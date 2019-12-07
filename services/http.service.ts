@@ -95,8 +95,11 @@ export class Request {
         console.log(`[OUT][${new Date().toLocaleString()}] ==> `, res);
 
         // 请求失败
-        if (res.statusCode === 403) {
-            await this.login();
+        if (res.statusCode === 401) {
+            console.log('触发重新登录');
+
+            await netlayer.control.relogin!();
+            
             return this.request(opts);
         }
 
