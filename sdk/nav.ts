@@ -58,6 +58,14 @@ class Nav {
       url: encodedUrl
     });
   }
+
+  loading () {
+		Taro.showNavigationBarLoading()
+	}
+
+	unloading () {
+		Taro.hideNavigationBarLoading()
+	}
 }
 
 export const nav = new Nav();

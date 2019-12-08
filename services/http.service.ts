@@ -154,12 +154,12 @@ export class Request {
    /** 
     * 抛出API方法
    */
-   static getApiList(requestConfig) {
-        if (!Object.keys(requestConfig).length) {
+   static getApiList(apis) {
+        if (!Object.keys(apis).length) {
             return {}
         }
-        Object.keys(requestConfig).forEach((key)=>{
-            this.apiLists[key] = this.creatRequests(requestConfig[key])
+        Object.keys(apis).forEach((key)=>{
+            this.apiLists[key] = this.creatRequests(apis[key])
         })
         return this.apiLists
    }
