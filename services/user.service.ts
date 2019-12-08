@@ -1,6 +1,10 @@
 import Taro from "@tarojs/taro";
 import {cache} from '../sdk/cache';
 
+const TOKEN = 'token';
+const USERID = 'userId';
+const LOGIN_INFO = 'loginInfo';
+
 class User {
   constructor () {
 
@@ -27,34 +31,58 @@ class User {
     return Taro.chooseAddress();
   }
 
+  setUserId (userId: number) {
+    cache.setSync(USERID, userId);
+  }
+
   async getUserId () {
-    const res = await cache.get('userId');
+    const res = await cache.get(USERID);
 
     return res.data;
   }
 
-  
+  getUserIdSync (): number {
+    return cache.getSync(USERID);
+  }
+
+  rmUserIdSync (): void {
+    cache.rmSync(USERID);
+  }
 
   async getToken () {
-    const res = await cache.get('token');
+    const res = await cache.get(TOKEN);
 
     return res.data
   }
 
   setToken (token: string) {
-    cache.setSync('token', token);
-  }
-
-  setUserId (userId: number) {
-    cache.setSync('userId', userId);
+    cache.setSync(TOKEN, token);
   }
 
   getTokenSync (): string {
-    return cache.getSync('token');
+    return cache.getSync(TOKEN);
   }
 
-  getUserIdSync (): number {
-    return cache.getSync('userId');
+  rmTokenSync () {
+    cache.rmSync(TOKEN);
+  }
+
+  getLoginInfoSync (): any {
+    return cache.getSync(LOGIN_INFO);
+  }
+  setLoginInfoSync (res): void {
+    cache.setSync(LOGIN_INFO, res);
+  }
+  rmLoginInfoSync (): void {
+    cache.rmSync(LOGIN_INFO);
+  }
+
+  clear (): void {
+    this.rmTokenSync();
+
+    this.rmUserIdSync();
+
+    this.rmLoginInfoSync();
   }
 }
 

@@ -1,3 +1,5 @@
 export * from './user.service';
 export * from './http.service';
-// export * from
+export * from './ver.service';
+export * from './logger.service';
+export * from './chan.service';

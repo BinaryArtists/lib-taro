@@ -1,5 +1,5 @@
 import { cache } from "../sdk";
-import { cachelayer } from "@lib-taro/layers/cache.layer";
+import { cachelayer } from "@lib-taro/layers";
 
 const VER = 'ver';
 
@@ -57,6 +57,12 @@ class VerService {
 
   }
 
+  init (): void {
+    const config: any = require('../../../package.json');
+
+    this.set(config.version);
+  }
+
   // main.sub.patch
   // 0.1.9
   set (ver: string): void {
@@ -64,11 +70,17 @@ class VerService {
 
     try {
       const res = cache.getSync(VER);
+
+      console.log('input = ', ver, ', cached = ', res);
+
       const newVer = newVersion(ver, res);
 
+      console.log('new = ', newVer);
+
       // 版本号不同，则请缓存
-      if (ver != newVer) {
+      if (ver != res) {
         // cache.rmSync(VER);
+        console.log('触发用户缓存清理');
         cachelayer.control.clear();
       }
     } catch (e) {
@@ -76,6 +88,8 @@ class VerService {
     } finally {
       // 写入最新的版本号
       cache.setSync(VER, ver);
+
+      // fixme：也可以用版本号作为 domain
     }
   }
 }

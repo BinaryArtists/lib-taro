@@ -1,5 +1,5 @@
 /** 
- * 封装logo函数
+ * 封装logger函数
 */
 
 import { formatTime } from '../common';
@@ -16,9 +16,9 @@ const defaults = {
     }
 }
 
-function printBuffer(logEntry, options){
-    const {logger,colors} = options;
-    let {title,started,req,res} = logEntry;
+function printBuffer (logEntry, options) {
+    const { logger, colors } = options;
+    let { title, started, req, res } = logEntry;
     
     // Message
     const headerCSS = ['color:gray; font-weight:lighter;']
@@ -36,7 +36,7 @@ interface LogEntry {
     started ? : object  // 触发时间
 }
 
-function createLogger(options: LogEntry = {}){
+function createLogger (options: LogEntry = {}) {
     const loggerOptions = Object.assign({}, defaults, options)
     const logEntry = options
     logEntry.started = new Date();
