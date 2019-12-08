@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import { postcss } from '../../../utils/style';
 import { AuthButtonProps } from './index.prot';
 
+// plain	boolean	false	否	按钮是否镂空，背景色透明
 function AuthButton (props: AuthButtonProps) {
   const {
     compStyle,
