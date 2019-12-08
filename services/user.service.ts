@@ -4,6 +4,7 @@ import {cache} from '../sdk/cache';
 const TOKEN = 'token';
 const USERID = 'userId';
 const LOGIN_INFO = 'loginInfo';
+const NEWER = 'newer';
 
 class User {
   constructor () {
@@ -31,6 +32,9 @@ class User {
     return Taro.chooseAddress();
   }
 
+  /**
+   * UserId
+   */
   setUserId (userId: number) {
     cache.setSync(USERID, userId);
   }
@@ -49,6 +53,9 @@ class User {
     cache.rmSync(USERID);
   }
 
+  /**
+   * Token
+   */
   async getToken () {
     const res = await cache.get(TOKEN);
 
@@ -67,6 +74,9 @@ class User {
     cache.rmSync(TOKEN);
   }
 
+  /**
+   * loginInfo
+   */
   getLoginInfoSync (): any {
     return cache.getSync(LOGIN_INFO);
   }
@@ -77,6 +87,22 @@ class User {
     cache.rmSync(LOGIN_INFO);
   }
 
+  /**
+   * Nnewer
+   */
+  isNewer (): boolean {
+    if (Taro.getStorageSync(NEWER) === '') {
+      Taro.setStorageSync(NEWER, false)
+      return true;
+    }
+
+    return false;
+  }
+  
+
+  /**
+  * Clear
+  */
   clear (): void {
     this.rmTokenSync();
 
