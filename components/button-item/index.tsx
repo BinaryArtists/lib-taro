@@ -4,7 +4,6 @@ import { View, Button, Text, Image } from '@tarojs/components';
 import './index.scss';
 import { ButtonItemProps } from './index.prot';
 import classNames from 'classnames';
-import { postcss } from '../../../utils/style';
 
 function ButtonItem (props: ButtonItemProps) {
   const {

@@ -2,7 +2,6 @@ import Taro, { Component, useEffect, useState } from '@tarojs/taro';
 import { View, Button, Text, Image } from '@tarojs/components';
 import './index.scss';
 import classNames from 'classnames';
-import { postcss } from '../../../utils/style';
 import { AuthButtonProps } from './index.prot';
 
 // plain	boolean	false	否	按钮是否镂空，背景色透明
