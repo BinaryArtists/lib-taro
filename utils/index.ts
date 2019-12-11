@@ -26,3 +26,5 @@ export const anonymousify = (str) => {
         return "";
     }
 }
+
+export * from './style';

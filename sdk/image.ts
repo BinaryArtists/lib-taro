@@ -46,6 +46,25 @@ class ImageSDK {
     }
   }
 
+  async upload(imageFileUrl: string, imageUploadApi: string) {
+    const res = await Taro.uploadFile({
+      url: imageUploadApi,
+      filePath: imageFileUrl,
+      name: 'image',
+      header: {
+        'Content-Type': 'multipart/form-data'
+      }
+    });
+
+    if (res.statusCode == 200) {
+      return JSON.parse(res.data)
+    } else {
+      console.error(res);
+
+      throw new Error('上传图片失败');
+    }
+  }
+
 }
 
 export const image = new ImageSDK();

@@ -2,7 +2,7 @@
  * 封装logger函数
 */
 
-import { formatTime } from '../common';
+import { formatTime } from '../utils';
 
 const defaults = {
     level: 'log',
