@@ -1,13 +1,13 @@
 import Taro from "@tarojs/taro";
 
 class Loading {
-	isLoading: boolean = false;
+	private isLoading: boolean = false;
 
 	constructor () {
 		
 	}
 
-	show (title:'加载中', force = false) {
+	show (title:string ='加载中', force:boolean = false) {
 		if (this.isLoading && !force) {
 			return
 		}
@@ -23,7 +23,7 @@ class Loading {
 		}
 	}
 
-	hide() {
+	hide () {
 		let duration = 0;
 		if (this.isLoading) {
 			this.isLoading = false;
