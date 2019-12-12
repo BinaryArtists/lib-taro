@@ -1,5 +1,7 @@
 import Taro from "@tarojs/taro";
 import {cache} from '../sdk/cache';
+import { loading, auth } from "@lib-taro/sdk";
+import { RoleEnum } from "@lib-taro/constants";
 
 const TOKEN = 'token';
 const USERID = 'userId';

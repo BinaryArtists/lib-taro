@@ -20,7 +20,7 @@ class ImageSDK {
 
     let CompressPicture = await Taro.compressImage({
       src: imageFileUrl,
-      quality: 70,
+      quality: 40,
       success(res) {
         console.log('压缩后图片', res)
       }
