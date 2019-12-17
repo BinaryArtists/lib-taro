@@ -1,22 +1,18 @@
 import Taro from "@tarojs/taro";
 
 class ImageSDK {
-  constructor () {
+  constructor() {
 
   }
 
-  async chooseOne () {
-    
-    const res = await Taro.chooseImage({count: 1});
-
+  async chooseOne() {
+    const res = await Taro.chooseImage({ count: 1 });
     return res.tempFilePaths[0];
   }
 
-  async chooseOneAndUpload (imageUploadApi) {
-    const imageFileUrl = await this.chooseOne();
-    // const filePieces = imageFileUrl.split('.');
-    // const fileName = filePieces[filePieces.length-1];
+  async chooseOneAndUpload(imageUploadApi) {
 
+      var imageFileUrl = await this.chooseOne();
 
     let CompressPicture = await Taro.compressImage({
       src: imageFileUrl,
@@ -26,7 +22,6 @@ class ImageSDK {
       }
     })
     console.log('压缩前后对比：', CompressPicture.tempFilePath, imageFileUrl)
-
 
     const res = await Taro.uploadFile({
       url: imageUploadApi,
@@ -44,6 +39,9 @@ class ImageSDK {
 
       throw new Error('上传图片失败');
     }
+
+
+
   }
 
   async upload(imageFileUrl: string, imageUploadApi: string) {
