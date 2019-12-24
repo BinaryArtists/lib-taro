@@ -1,10 +1,18 @@
 import { View, Image, Text, Input, ScrollView, Swiper, SwiperItem } from '@tarojs/components'
 import './index.scss';
 import { netlayer } from '@lib-taro/layers';
+import { nav } from '@lib-taro/sdk';
 
 
 function Banner(props) {
   const res = Taro.getSystemInfoSync()
+
+  const onBannerClicked = item => {
+    nav.to('/lib-taro/pages/web-view/index', {
+      url: item.link
+    })
+  }
+
   return (
     <View>
 
@@ -22,7 +30,7 @@ function Banner(props) {
         {
           props.ad && props.ad.map((item, key) => (
             <SwiperItem key={item.id}>
-              <View className="banner">
+              <View className="banner" onClick={onBannerClicked.bind(this, item)}>
                   <Image className="banner_img" src={netlayer.pipe.image(item.pic)} />
               </View>
             </SwiperItem>
