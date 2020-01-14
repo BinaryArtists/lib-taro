@@ -1,5 +1,6 @@
 
 export interface AuthButtonProps {
+  // plain	boolean	false	否	按钮是否镂空，背景色透明
   type: 'default' | 'primary' | 'disabled' | 'plain';
 
   /**
@@ -29,6 +30,7 @@ export interface AuthButtonProps {
    * }
    */
   compStyle?: string;
+  authStyle?: object;
 
   textClass?: string;
   textStyle?: any;

@@ -4,9 +4,9 @@ import './index.scss';
 import classNames from 'classnames';
 import { AuthButtonProps } from './index.prot';
 
-// plain	boolean	false	否	按钮是否镂空，背景色透明
 function AuthButton (props: AuthButtonProps) {
   const {
+    authStyle, // wrap view style
     compStyle,
 
     type, 
@@ -41,6 +41,7 @@ function AuthButton (props: AuthButtonProps) {
   return (
     <View className='AuthButton'>
       <Button
+        style={authStyle}
         className={getCls(compStyle)}
         hoverClass='none'
         // style={{"background-color": clear}}

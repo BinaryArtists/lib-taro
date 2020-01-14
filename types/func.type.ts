@@ -6,3 +6,7 @@ export interface VoidFunction {
 export interface AsyncVoidFunction {
   (): Promise<any>;
 }
+
+export interface BooleanFunction {
+  (): boolean;
+}
