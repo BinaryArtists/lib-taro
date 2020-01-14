@@ -9,6 +9,23 @@ export const formatTime = time => {
     `${pad(time.getHours())}:${pad(time.getMinutes())}:${pad(time.getSeconds())}.${pad(time.getMilliseconds(), 3)}`
 }
 
+export const len = (arrOrObj) => {
+if (!arrOrObj) return null;
+if (arrOrObj instanceof Array) {
+    if (arrOrObj.length) return arrOrObj.length;
+    return null;
+}
+if (arrOrObj instanceof Object) {
+    if (Object.keys(arrOrObj).length) return Object.keys(arrOrObj).length;
+    return null;
+};
+if (typeof arrOrObj == 'string') {
+    return arrOrObj.length;
+}
+
+return null;
+} 
+
 export const noop = () => {
 
 }
