@@ -1,0 +1,51 @@
+@import '@styles/variables.scss';
+
+.AuthMenuItem {
+  // width: 130px;
+  // height: 130px;
+  width: 25%;
+  height: 160px;
+  // padding-top: -100%;
+  // padding: 30px;
+  display: inline-block;
+  border: 0px;
+  background: #ffffff;
+
+  &-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    &-src {
+      width: 56px;
+      height: 56px;
+      padding: 20px 10px;
+    }
+    &-src-active::after {
+      content: '';
+      width: 15px;
+      height: 15px;
+      background: #fd6d30;
+      position:absolute;
+      right: 10px;
+      top: 10px;
+      border-radius: 100%;
+    }
+  }
+  &-image-active::after {
+    content: 'NEW';
+    background: #fd704b;
+    position:absolute;
+    left: 0px;
+    color: white;
+    top: 0px;
+    padding: 5px 7px;
+    font-size: 12px;
+    border-radius: 5px;
+  }
+  &-text {
+    font-size: 28px;
+    text-align: center;
+  }
+}

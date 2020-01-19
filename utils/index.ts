@@ -44,4 +44,20 @@ export const anonymousify = (str) => {
     }
 }
 
+// 将骆驼命名规则的字符串转换成使用短横线命名法的字符串
+
+export const camel2kebab = (str) => {
+    return str.replace(/[A-Z]/g, function(item) {
+        return '-'+item.toLowerCase()
+    })
+}
+
+// 将短横线命名法的字符串转换成使用骆驼命名规则的字符串
+
+export const kebab2camel = (str) => {
+    return str.replace(/-([a-z])/g, function(keb, item) {
+        return item.toUpperCase();
+    } )
+}
+
 export * from './style';

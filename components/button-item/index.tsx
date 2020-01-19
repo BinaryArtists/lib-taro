@@ -51,7 +51,7 @@ function ButtonItem (props: ButtonItemProps) {
   );
 }
 
-ButtonItem.options = {
+ButtonItem.defaultProps = {
   compStyle: '',
   textStyle: '',
   openType: '',

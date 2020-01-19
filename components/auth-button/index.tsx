@@ -65,7 +65,7 @@ function AuthButton (props: AuthButtonProps) {
   );
 }
 
-AuthButton.options = {
+AuthButton.defaultProps = {
   compStyle: 'comp-button',
   textStyle: 'default',
   openType: 'getUserInfo',

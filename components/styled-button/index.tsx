@@ -17,7 +17,7 @@ function StyledButton (props: StyledButtonProps) {
   );
 }
 
-StyledButton.options = {
+StyledButton.defaultProps = {
   title: '',
   onClick: () => {}
 };
